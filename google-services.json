@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "335311955698",
+    "project_id": "dyeustask",
+    "storage_bucket": "dyeustask.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:335311955698:android:4ad221d38b5e2c03d0126b",
+        "android_client_info": {
+          "package_name": "com.example.dyeustask"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "335311955698-v98brq41e4opmfvvp7hk8ard7numopm1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dyeustask",
+            "certificate_hash": "a8d4b075af51cc6a6377a8417d190760b4d9677d"
+          }
+        },
+        {
+          "client_id": "335311955698-m652g0gn2mle393g0l166553uev4jgvl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAe7AuIaNxt9NoQBdFpgkpFFadFEFN4r4k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "335311955698-m652g0gn2mle393g0l166553uev4jgvl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
