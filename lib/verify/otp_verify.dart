@@ -14,7 +14,7 @@ class OtpVerify extends StatefulWidget {
   State<OtpVerify> createState() => _OtpVerifyState();
 }
 
-class _OtpVerifyState extends State<OtpVerify> with CodeAutoFill {
+class _OtpVerifyState extends State<OtpVerify> {
   late String _verificationCode;
   OtpFieldController otpController = OtpFieldController();
   String pin = '';
@@ -27,21 +27,20 @@ class _OtpVerifyState extends State<OtpVerify> with CodeAutoFill {
   @override
   void initState() {
     super.initState();
-    listen();
+  //  listen();
     verifyPhone();
   }
 
-  listen() {
-    SmsAutoFill().listenForCode;
-  }
+  // listen() {
+  //   SmsAutoFill().listenForCode;
+  // }
 
   @override
-  void codeUpdated() {
-    print("Update code $code");
-    setState(() {
-      print("codeUpdated");
-    });
+  void dispose() {
+    super.dispose();
   }
+
+
 
   @override
   Widget build(BuildContext context) {

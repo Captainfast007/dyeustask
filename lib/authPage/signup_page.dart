@@ -1,18 +1,24 @@
+
+import 'package:dyeustask/service/service.dart';
 import 'package:dyeustask/AppTextStyles.dart';
 import 'package:dyeustask/verify/otp_verify.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class SignUpPage extends StatelessWidget {
-   SignUpPage({Key? key}) : super(key: key);
+  SignUpPage({Key? key}) : super(key: key);
+
+  String number = '';
+
+  Service service=Service();
 
 
-  String number='';
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-         Text(
+        Text(
           'Welcome to App',
           style: AppStyles.heading,
         ),
@@ -37,7 +43,7 @@ class SignUpPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(left: 10.0, right: 8.0),
               child: TextFormField(
-                onChanged: (value)=>number=value,
+                onChanged: (value) => number = value,
                 autofocus: true,
                 keyboardType: TextInputType.phone,
                 decoration: InputDecoration(
@@ -64,7 +70,7 @@ class SignUpPage extends StatelessWidget {
                           ),
                           Padding(
                             padding:
-                            const EdgeInsets.only(top: 3.0, bottom: 3.0),
+                                const EdgeInsets.only(top: 3.0, bottom: 3.0),
                             child: Container(
                               color: Colors.grey,
                               width: 2,
@@ -89,9 +95,22 @@ class SignUpPage extends StatelessWidget {
           ),
           clipBehavior: Clip.hardEdge,
           child: TextButton(
-              onPressed: () {
-
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>OtpVerify( number: number)));
+              onPressed: () async {
+                if (await service.checkUser(number) == false) {
+                  service.setUser(number);
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => OtpVerify(number: number)));
+                } else {
+                  Fluttertoast.showToast(
+                      msg: "User Already exists",
+                      toastLength: Toast.LENGTH_SHORT,
+                      gravity: ToastGravity.CENTER,
+                      backgroundColor: Colors.black,
+                      textColor: Colors.white,
+                      fontSize: 16.0);
+                }
               },
               child: const Text(
                 'Continue',

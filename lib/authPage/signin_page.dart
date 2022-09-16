@@ -1,10 +1,15 @@
+import 'package:dyeustask/service/service.dart';
+
 import 'package:dyeustask/AppTextStyles.dart';
 import 'package:dyeustask/verify/otp_verify.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class SignINPage extends StatelessWidget {
   SignINPage({Key? key}) : super(key: key);
 
+
+  Service service=Service();
   String number = '';
   @override
   Widget build(BuildContext context) {
@@ -85,13 +90,24 @@ class SignINPage extends StatelessWidget {
           ),
           clipBehavior: Clip.hardEdge,
           child: TextButton(
-              onPressed: () {
-                Navigator.push(
+              onPressed: ()async {
+                if( await service.checkUser(number)) {
+                  Navigator.push(
                     context,
                     MaterialPageRoute(
                         builder: (context) => OtpVerify(
                               number: number,
                             )));
+                }
+                else{
+                  Fluttertoast.showToast(
+                      msg: "User not Found",
+                      toastLength: Toast.LENGTH_SHORT,
+                      gravity: ToastGravity.CENTER,
+                      backgroundColor: Colors.black,
+                      textColor: Colors.white,
+                      fontSize: 16.0);
+                }
               },
               child: const Text(
                 'Continue',
