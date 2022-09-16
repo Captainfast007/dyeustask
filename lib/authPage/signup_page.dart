@@ -1,9 +1,9 @@
-
-import 'package:dyeustask/otp_verify.dart';
+import 'package:dyeustask/AppTextStyles.dart';
+import 'package:dyeustask/verify/otp_verify.dart';
 import 'package:flutter/material.dart';
 
-class SignINPage extends StatelessWidget {
-   SignINPage({Key? key}) : super(key: key);
+class SignUpPage extends StatelessWidget {
+   SignUpPage({Key? key}) : super(key: key);
 
 
   String number='';
@@ -12,16 +12,15 @@ class SignINPage extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        const Text(
-          'Welcome Back!!',
-          style: TextStyle(
-              fontFamily: '', fontWeight: FontWeight.w600, fontSize: 28),
+         Text(
+          'Welcome to App',
+          style: AppStyles.heading,
         ),
         const SizedBox(
           height: 30,
         ),
         const Text(
-          'Please login with your phone number.',
+          'Please signup with your phone number to get registered',
           style: TextStyle(
               fontFamily: 'General Sans',
               fontWeight: FontWeight.w500,
@@ -47,24 +46,10 @@ class SignINPage extends StatelessWidget {
                       height: 40,
                       child: Row(
                         children: [
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                height: 8,
-                                width: 32,
-                                color: const Color(0xFFFF9933),
-                              ),
-                              Container(
-                                height: 8,
-                                width: 32,
-                                color: Colors.white,
-                              ),
-                              Container(
-                                  height: 8,
-                                  width: 32,
-                                  color: const Color(0xFF128807))
-                            ],
+                          Image.asset(
+                            'assets/tiranga.png',
+                            width: 32,
+                            height: 24,
                           ),
                           const SizedBox(
                             width: 8,
@@ -79,7 +64,7 @@ class SignINPage extends StatelessWidget {
                           ),
                           Padding(
                             padding:
-                                const EdgeInsets.only(top: 3.0, bottom: 3.0),
+                            const EdgeInsets.only(top: 3.0, bottom: 3.0),
                             child: Container(
                               color: Colors.grey,
                               width: 2,
@@ -99,13 +84,14 @@ class SignINPage extends StatelessWidget {
         Container(
           height: 48,
           decoration: BoxDecoration(
-            color: const Color(0xFFBFFB62),
+            color: AppStyles.themeColor,
             borderRadius: BorderRadius.circular(24.0),
           ),
           clipBehavior: Clip.hardEdge,
           child: TextButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>OtpVerify(number: number,)));
+
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>OtpVerify( number: number)));
               },
               child: const Text(
                 'Continue',

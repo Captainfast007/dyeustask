@@ -1,7 +1,9 @@
-import 'package:dyeustask/signin_page.dart';
-import 'package:dyeustask/signup_page.dart';
+import 'package:dyeustask/authPage/signin_page.dart';
+import 'package:dyeustask/authPage/signup_page.dart';
 import 'package:flutter/material.dart';
 import 'package:toggle_switch/toggle_switch.dart';
+
+import 'AppTextStyles.dart';
 
 
 class LandingPage extends StatefulWidget {
@@ -35,7 +37,7 @@ class _LandingPageState extends State<LandingPage> {
                   minWidth: 100.0,
                   minHeight: 50,
                   cornerRadius: 35.0,
-                  activeBgColors: const [[Color(0xFFBFFB62)], [Color(0xFFBFFB62)]],
+                  activeBgColors: [[AppStyles.themeColor], [AppStyles.themeColor]],
                   activeFgColor: Colors.black,
                   inactiveFgColor: Colors.black,
                   inactiveBgColor: Colors.white,

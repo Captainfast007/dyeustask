@@ -1,30 +1,26 @@
-import 'package:dyeustask/otp_verify.dart';
+import 'package:dyeustask/AppTextStyles.dart';
+import 'package:dyeustask/verify/otp_verify.dart';
 import 'package:flutter/material.dart';
 
-class SignUpPage extends StatelessWidget {
-   SignUpPage({Key? key}) : super(key: key);
+class SignINPage extends StatelessWidget {
+  SignINPage({Key? key}) : super(key: key);
 
-
-  String number='';
+  String number = '';
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        const Text(
-          'Welcome to App',
-          style: TextStyle(
-              fontFamily: '', fontWeight: FontWeight.w600, fontSize: 28),
+        Text(
+          'Welcome Back!!',
+          style: AppStyles.heading,
         ),
         const SizedBox(
-          height: 30,
+          height: 50,
         ),
         const Text(
-          'Please signup with your phone number to get registered',
-          style: TextStyle(
-              fontFamily: 'General Sans',
-              fontWeight: FontWeight.w500,
-              fontSize: 16),
+          'Please login with your phone number.',
+          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
         ),
         const SizedBox(
           height: 20,
@@ -37,7 +33,7 @@ class SignUpPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(left: 10.0, right: 8.0),
               child: TextFormField(
-                onChanged: (value)=>number=value,
+                onChanged: (value) => number = value,
                 autofocus: true,
                 keyboardType: TextInputType.phone,
                 decoration: InputDecoration(
@@ -46,24 +42,10 @@ class SignUpPage extends StatelessWidget {
                       height: 40,
                       child: Row(
                         children: [
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                height: 8,
-                                width: 32,
-                                color: const Color(0xFFFF9933),
-                              ),
-                              Container(
-                                height: 8,
-                                width: 32,
-                                color: Colors.white,
-                              ),
-                              Container(
-                                  height: 8,
-                                  width: 32,
-                                  color: const Color(0xFF128807))
-                            ],
+                          Image.asset(
+                            'assets/tiranga.png',
+                            width: 32,
+                            height: 24,
                           ),
                           const SizedBox(
                             width: 8,
@@ -78,7 +60,7 @@ class SignUpPage extends StatelessWidget {
                           ),
                           Padding(
                             padding:
-                            const EdgeInsets.only(top: 3.0, bottom: 3.0),
+                                const EdgeInsets.only(top: 3.0, bottom: 3.0),
                             child: Container(
                               color: Colors.grey,
                               width: 2,
@@ -98,14 +80,18 @@ class SignUpPage extends StatelessWidget {
         Container(
           height: 48,
           decoration: BoxDecoration(
-            color: const Color(0xFFBFFB62),
+            color: AppStyles.themeColor,
             borderRadius: BorderRadius.circular(24.0),
           ),
           clipBehavior: Clip.hardEdge,
           child: TextButton(
               onPressed: () {
-
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>OtpVerify( number: number)));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => OtpVerify(
+                              number: number,
+                            )));
               },
               child: const Text(
                 'Continue',
